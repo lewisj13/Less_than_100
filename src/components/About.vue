@@ -7,7 +7,7 @@
     </p>
 
       <h1>Less Than 100</h1>
-      <h2 id="subtitle">ABOUT SECTIONG GOING HERE.</h2>
+      <h2 id="subtitle">ABOUT SECTION GOING HERE.</h2>
 
   </div>
 </template>

@@ -12,9 +12,11 @@
   "dependencies": {
     "axios": "^0.17.1",
     "bootstrap-vue": "^2.0.0-rc.1",
+    "spotify-web-api-node": "^2.5.0",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-spotify": "^1.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

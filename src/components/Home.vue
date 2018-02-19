@@ -9,5 +9,8 @@
         <router-link v-bind:to="{name: 'About'}">About</router-link>
       </p>
 
+      <p> Find music on Spotify that has been played 100 times or less.</p>
+       
+
   </div>
 </template>
