@@ -5,6 +5,13 @@ import App from './App'
 import router from './router'
 import Spotify from 'spotify-web-api-node'
 import VueSpotify from 'vue-spotify'
+import jQuery from 'jquery'
+import bImg from 'bootstrap-vue/es/components/image/img';
+
+Vue.component('b-img', bImg);
+global.jQuery = jQuery
+let Bootstrap = require('bootstrap')
+import 'bootstrap/dist/css/bootstrap.css'
 
 Vue.config.productionTip = false
 

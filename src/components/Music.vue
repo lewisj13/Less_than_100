@@ -1,12 +1,16 @@
 <template>
   <div class="music">
-    <p>
-      <router-link v-bind:to="{name: 'Home'}">Home</router-link>
-      &bull;
-      <router-link v-bind:to="{name: 'About'}">About</router-link>
-    </p>
-      <h1>Less Than 100</h1>
+    <div>
+    <b-nav id='nav' pills>
+      <b-nav-item v-bind:to="{name: 'Home'}">Home</b-nav-item>
+      <b-nav-item v-bind:to="{name: 'Music'}">Music</b-nav-item>
+      <b-nav-item v-bind:to="{name: 'About'}">About</b-nav-item>
+        </b-nav>
+          </div>
+
+
       <h2 id="subtitle">MUSIC SECTION WITH SPOTIFY API</h2>
+
     <div id="login" v-show="mustLogin && !loggedIn" >
       <div v-show="!loggedIn">
         <p>Login to Spotify to find music that has been played less than 100 times!</p>
@@ -30,6 +34,7 @@
           <td>{{result.name}}</td><td><button id="music-fetch-button" @click="fetchMusic">Fetch</button></td>
         </tr>
       </table>
+
 
       <!-- <ul class="music" v-if="results && results.length > 0">
        <li v-for="(result,index) in results" :key="index">
@@ -180,3 +185,19 @@ export default {
   }
 };
 </script>
+
+<style>
+
+#nav {
+  background-color: #4ABDAC;
+  font-family: trebuchet;
+  border: none;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+</style>
