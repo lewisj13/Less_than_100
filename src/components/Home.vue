@@ -1,21 +1,71 @@
 <template>
   <div class="home">
     <div>
-
       <b-nav id='nav' pills>
         <b-nav-item v-bind:to="{name: 'Home'}">Home</b-nav-item>
         <b-nav-item v-bind:to="{name: 'Music'}">Music</b-nav-item>
-        <b-nav-item v-bind:to="{name: 'About'}">About</b-nav-item>
-    </b-nav>
-          </div>
+          </b-nav>
+    </div>
 <div>
+
   <b-jumbotron id='main' header="Find Music to Dance" lead="Find music on Spotify that has been played 100 times or less." >
 
   <b-btn id='button2' v-bind:to="{name: 'Music'}">Find Music</b-btn>
 </b-jumbotron>
-</div>
 
 </div>
+
+<div id="information" class="container">
+  <div class="row">
+<b-jumbotron id='info'class="col-md-6" header="Why this App?"  >
+
+<p> This app is a fun way to discover new music through Spotify. With the help of the Spotify web API and Vue.
+  This project has come to life. The main goal was to create a fun space to discover new music.
+  So come explore and find something you didnt know existed in the mircocosm that is Spotify.</p>
+</b-jumbotron>
+
+<b-jumbotron id='photo'class="col-md-6" >
+
+<p> thest </p>
+  </b-jumbotron>
+
+
+</div>
+</div>
+
+
+<div id='footer' class="footer">
+  <div class="container-fluid text-center text-md-left">
+            <div class="row">
+
+                <div id="add" class="col-md-6">
+                    <h5 class="text-uppercase">For other projects check out JNLewis Designs.</h5>
+                    <p  class ="text-center text-md-left">Please visit my portfolio at <a href="https://jnlewisdesigns.com">JnlewisDesigns</a> to see more projects and learn more about my work.
+                     This is just a small sample of my skills and abilities. </p>
+                </div>
+
+                <div id='social' class="col-md-6">
+                    <h5 class="text-uppercase">Social</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/lewisj13/less_than_100">Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/jamie-lewis-52a19b149/">Linkden</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--Copyright-->
+        <div id='copyright' class="footer-copyright py-3 text-center">
+            <div class="container-fluid">
+                © 2018 Copyright: <a href="https://jnlewisdesigns.com">JNLewis Designs</a>
+
+            </div>
+        </div>
+  </div>
+
+</div>
+
 </template>
 
 <script>
@@ -27,13 +77,14 @@
 
 #nav {
   background-color: #4ABDAC;
+  color: white;
   font-family: trebuchet;
   border: none;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 0;
 }
 
 #nav active {
@@ -46,14 +97,40 @@
 }
 
 #main {
-  padding-top: 45px;
-  border-top: solid;
-
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-bottom: 0;
 }
 
+#information {
+margin-left: 30px;
+margin-right: 30px;
+margin-top: 30px;
+margin-bottom: 30px;
+padding- right: 30px;
+}
+
+#info {
+  text-align: center;
+
+}
+#photo {
+  text-align: center;
+
+}
 #footer {
   background-color: gray;
+
   padding-top: 30px;
   padding-bottom: 30px;
+  padding-left: 30px;
+  padding-rigth: 30px;
+  color: white;
+}
+#add {
+   text-align: justify;
+  padding-right: 20px;
+  padding-left: 20px;
+
 }
 </style>

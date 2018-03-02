@@ -3,8 +3,7 @@
     <div>
     <b-nav id='nav' pills>
       <b-nav-item v-bind:to="{name: 'Home'}">Home</b-nav-item>
-      <b-nav-item v-bind:to="{name: 'Music'}">Music</b-nav-item>
-      <b-nav-item v-bind:to="{name: 'About'}">About</b-nav-item>
+      <b-nav-item active v-bind:to="{name: 'Music'}">Music</b-nav-item>
         </b-nav>
           </div>
 
@@ -14,7 +13,7 @@
     <div id="login" v-show="mustLogin && !loggedIn" >
       <div v-show="!loggedIn">
         <p>Login to Spotify to find music that has been played less than 100 times!</p>
-        <p><button id="login-button" @click="login">Log In</button></p>
+        <p><b-btn id='login-button' @click="login">Log In</b-btn></p>
       </div>
       <div id="user-profile-template"></div>
       <div id="user-profile"></div>
@@ -43,6 +42,36 @@
        </li>
       </ul> -->
     </div>
+    <div id='footer' class="footer">
+      <div class="container-fluid text-center text-md-left">
+                <div class="row">
+
+                    <div id="add" class="col-md-6">
+                        <h5 class="text-uppercase">For other projects check out JNLewis Designs.</h5>
+                        <p  class ="text-center text-md-left">Please visit my portfolio at <a href="https://jnlewisdesigns.com">JnlewisDesigns</a> to see more projects and learn more about my work.
+                         This is just a small sample of my skills and abilities. </p>
+                    </div>
+
+                    <div id='social' class="col-md-6">
+                        <h5 class="text-uppercase">Social</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="https://github.com/lewisj13/less_than_100">Github</a></li>
+                            <li><a href="https://www.linkedin.com/in/jamie-lewis-52a19b149/">Linkden</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--Copyright-->
+            <div id='copyright' class="footer-copyright py-3 text-center">
+                <div class="container-fluid">
+                    © 2018 Copyright: <a href="https://jnlewisdesigns.com">JNLewis Designs</a>
+
+                </div>
+            </div>
+      </div>
+
   </div>
 </template>
 
@@ -77,8 +106,8 @@ function generateRandomString(length) {
   return text;
 }
 function authorize(stateKey) {
-  var client_id = "";
-  var redirect_uri = "";
+  var client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
+  var redirect_uri = "https://less-than-100.firebaseapp.com/authorize/";
   if (location.host == "localhost:8080") {
     client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
     redirect_uri = "http://localhost:8080/authorize";
@@ -197,6 +226,27 @@ export default {
   padding-bottom: 10px;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+#login-button {
+  background-color: #4ABDAC;
+  border: none;
+}
+
+#footer {
+  background-color: gray;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-rigth: 30px;
+  color: white;
+}
+#add {
+   text-align: justify;
+  padding-right: 20px;
+  padding-left: 20px;
+
 }
 
 

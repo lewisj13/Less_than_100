@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <img id='image' src="./assets/logo1.png">
+
+    <img id='image'src="./assets/logo1.png" alt='music logo' >
     <router-view/>
+
   </div>
 </template>
 
@@ -28,4 +30,5 @@ body, html {
   margin: 0;
   padding: 0;
 }
+
 </style>
