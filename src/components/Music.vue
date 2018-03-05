@@ -1,12 +1,17 @@
 <template>
   <div class="music">
-    <div>
-    <b-nav id='nav' pills>
-      <b-nav-item v-bind:to="{name: 'Home'}">Home</b-nav-item>
-      <b-nav-item active v-bind:to="{name: 'Music'}">Music</b-nav-item>
-        </b-nav>
-          </div>
 
+    <!-- Navbar -->
+        <div>
+          <b-navbar  id="navbar" toggleable="md" type="dark">
+          <b-navbar-brand v-bind:to="{name: 'Home'}">Less Than 100</b-navbar-brand>
+
+          <b-navbar-nav class="ml-auto">
+              <b-nav-item v-bind:to="{name: 'Home'}">Home</b-nav-item>
+              <b-nav-item v-bind:to="{name: 'Music'}">Music</b-nav-item>
+            </b-navbar-nav>
+        </b-navbar>
+      </div>
 
       <h2 id="subtitle">MUSIC SECTION WITH SPOTIFY API</h2>
 
@@ -217,14 +222,14 @@ export default {
 
 <style>
 
-#nav {
+#navbar {
   background-color: #4ABDAC;
   font-family: trebuchet;
   border: none;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: 40px;
+  margin-top: 0px;
   margin-bottom: 40px;
 }
 

@@ -6,17 +6,8 @@ import router from './router'
 import Spotify from 'spotify-web-api-node'
 import VueSpotify from 'vue-spotify'
 import jQuery from 'jquery'
-import bImg from 'bootstrap-vue/es/components/image/img';
 
-Vue.component('b-img', bImg);
 global.jQuery = jQuery
-let Bootstrap = require('bootstrap')
-import 'bootstrap/dist/css/bootstrap.css'
-
-
-Vue.use(VueSpotify, new Spotify())
-
-Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
@@ -26,6 +17,19 @@ new Vue({
   components: { App }
 })
 
+/* Bootstrap */
+let Bootstrap = require('bootstrap')
+import 'bootstrap/dist/css/bootstrap.css'
+
+/* Spotify */
+Vue.use(VueSpotify, new Spotify())
+
+Vue.config.productionTip = false
+
+
+
+
+/* Google Analytics */
 var google_analytics = require('./js/google_analytics.js')
 
 router.start(App,'body', function(){
