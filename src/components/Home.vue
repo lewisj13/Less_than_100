@@ -17,8 +17,9 @@
     <div>
       <b-jumbotron id='main' header="Find Music to Dance" lead="Find music on Spotify that has been played 100 times or less." >
 
-      <b-btn id='button2' v-bind:to="{name: 'Music'}">Find Music</b-btn>
-    </b-jumbotron>
+        <router-link :to="{name: 'Music'}">
+              <b-btn id='button2' >Find Music</b-btn>
+            </router-link>    </b-jumbotron>
   </div>
 
 <div id="information" class="container">

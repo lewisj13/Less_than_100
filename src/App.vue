@@ -14,7 +14,7 @@ export default {
 
 <style>
 template {
-    background-color: #fc4a1a;
+
 }
 #app {
   font-family: Myriad Pro;
@@ -25,7 +25,7 @@ template {
   margin-top: 60px;
 }
 body, html {
-  background: #fc4a1a;
+
   margin: 0;
   padding: 0;
 }

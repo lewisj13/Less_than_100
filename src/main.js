@@ -25,22 +25,3 @@ import 'bootstrap/dist/css/bootstrap.css'
 Vue.use(VueSpotify, new Spotify())
 
 Vue.config.productionTip = false
-
-
-
-
-/* Google Analytics */
-var google_analytics = require('./js/google_analytics.js')
-
-router.start(App,'body', function(){
-	google_analytics.init()
-})
-
-router.beforeEach(function (transition) {
-	ga('send', {
-	  hitType: 'pageview',
-	  page: transition.to.path,
-	  location: window.location.origin + transition.to.path,
-	  title: transition.to.name
-	});
-})

@@ -13,7 +13,7 @@
         </b-navbar>
       </div>
 
-      <h2 id="subtitle">MUSIC SECTION WITH SPOTIFY API</h2>
+    <h2 id="subtitle">MUSIC SECTION WITH SPOTIFY API</h2>
 
     <div id="login" v-show="mustLogin && !loggedIn" >
       <div v-show="!loggedIn">
@@ -82,61 +82,12 @@
 
 <script>
 import axios from "axios";
-/**
- * Obtains para meters from the hash of the URL
- * @return Object
- */
-function getHashParams() {
-  var hashParams = {};
-  var e,
-    r = /([^&;=]+)=?([^&;]*)/g,
-    q = window.location.hash.substring(1);
-  while ((e = r.exec(q))) {
-    hashParams[e[1]] = decodeURIComponent(e[2]);
-  }
-  return hashParams;
-}
-/**
- * Generates a random string containing numbers and letters
- * @param  {number} length The length of the string
- * @return {string} The generated string
- */
-function generateRandomString(length) {
-  var text = "";
-  var possible =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  for (var i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return text;
-}
-function authorize(stateKey) {
-  var client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
-  var redirect_uri = "https://less-than-100.firebaseapp.com/authorize/";
-  if (location.host == "localhost:8080") {
-    client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
-    redirect_uri = "http://localhost:8080/authorize";
-  } else {
-    client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
-    redirect_uri = "https://less-than-100.firebaseapp.com/authorize/";
-  }
-  var state = generateRandomString(16);
-  localStorage.setItem(stateKey, state);
-  var scope = "user-read-private user-read-email";
-  var url = "https://accounts.spotify.com/authorize";
-  url += "?response_type=token";
-  url += "&client_id=" + encodeURIComponent(client_id);
-  url += "&scope=" + encodeURIComponent(scope);
-  url += "&redirect_uri=" + encodeURIComponent(redirect_uri);
-  // url += "&redirect_uri=" + redirect_uri;
-  url += "&state=" + encodeURIComponent(state);
-  window.location = url;
-}
 export default {
   name: "Music",
   data() {
-    debugger;
-    let loggedIn = this.$route.hash ? true : false;
+    let loggedIn =
+      this.$route.hash != null && this.$route.hash.length > 0 ? true : false;
+    let access_token = this.$route.hash.substring(1);
     return {
       results: null,
       me: null,
@@ -144,12 +95,12 @@ export default {
       query: "",
       mustLogin: true,
       loggedIn: loggedIn,
-      access_token: this.$route.hash.substring(1)
+      access_token: access_token
     };
   },
   mounted: function() {
     console.log("access_token", this.access_token);
-    if (this.access_token) {
+    if (this.access_token.length > 0) {
       let config = {
         headers: {
           Authorization: "Bearer ".concat(this.access_token)
@@ -168,18 +119,61 @@ export default {
     }
   },
   methods: {
+
+    getHashParams: function() {
+      var hashParams = {};
+      var e,
+        r = /([^&;=]+)=?([^&;]*)/g,
+        q = window.location.hash.substring(1);
+      while ((e = r.exec(q))) {
+        hashParams[e[1]] = decodeURIComponent(e[2]);
+      }
+      return hashParams;
+    },
+
+
+    generateRandomString: function(length) {
+      var text = "";
+      var possible =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
+      return text;
+    },
+    authorize: function(stateKey) {
+      var client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
+      var redirect_uri = "";
+      if (location.host == "localhost:8080") {
+        client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
+        redirect_uri = "http://localhost:8080/authorize";
+      } else {
+        client_id = "c4eea423ec7b4dd49fc162ff369be3a4";
+        redirect_uri = "https://less-than-100.firebaseapp.com/authorize";
+      }
+      var state = this.generateRandomString(16);
+      localStorage.setItem(stateKey, state);
+      var scope = "user-read-private user-read-email";
+      var url = "https://accounts.spotify.com/authorize";
+      url += "?response_type=token";
+      url += "&client_id=" + encodeURIComponent(client_id);
+      url += "&scope=" + encodeURIComponent(scope);
+      url += "&redirect_uri=" + encodeURIComponent(redirect_uri);
+      url += "&state=" + encodeURIComponent(state);
+      window.location = url;
+    },
     login: function() {
       let stateKey = "spotify_auth_state";
-      let params = getHashParams();
+      let params = this.getHashParams();
       let storedState = localStorage.getItem(stateKey);
       if (
-        this.access_token &&
+        this.access_token.length > 0 &&
         (params.state == null || params.state !== storedState)
       ) {
         alert("There was an error during the authentication");
       } else {
         localStorage.removeItem(stateKey);
-        if (this.access_token) {
+        if (this.access_token.length > 0) {
           axios.get({
             url: "https://api.spotify.com/v1/me",
             headers: {
@@ -194,9 +188,9 @@ export default {
           (this.mustLogin = true), (this.loggedIn = false);
         }
       }
-      authorize(stateKey);
+      this.authorize(stateKey);
     },
-    fetchMusic: function(){
+    fetchMusic: function() {
       return {};
     },
     getPlaylist: function() {
@@ -205,7 +199,9 @@ export default {
           Authorization: "Bearer ".concat(this.access_token)
         }
       };
-      let URL = `https://api.spotify.com/v1/search?type=playlist&q=${this.query}`;
+      let URL = `https://api.spotify.com/v1/search?type=playlist&q=${
+        this.query
+      }`;
       let self = this;
       axios
         .get(URL, config)
