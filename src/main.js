@@ -6,6 +6,7 @@ import router from './router'
 import Spotify from 'spotify-web-api-node'
 import VueSpotify from 'vue-spotify'
 import jQuery from 'jquery'
+import VueAnalytics from 'vue-analytics'
 
 global.jQuery = jQuery
 
@@ -25,3 +26,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 Vue.use(VueSpotify, new Spotify())
 
 Vue.config.productionTip = false
+
+/* Google Analytics */
+Vue.use(VueAnalytics, {
+  id: 'UA-114926652-1'
+})

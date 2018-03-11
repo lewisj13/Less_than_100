@@ -2,7 +2,7 @@
   <div>
     <p>Congrats, you have been authorized.</p>
     <p>Logged in as {{display_name}}</p>
-    <router-link v-bind:to="{name: 'Home'}">Return to Home</router-link>
+    <router-link v-bind:to="{name: 'Music'}">Return to Music</router-link>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     let accessCode = hash2Obj["#access_token"];
     //let searchUri = "search/" + accessCode;
     // let authorizedHome = "/#" + accessCode;
-    this.$router.push({ path: `/#${accessCode}`});
+    this.$router.push({ path: `/music#${accessCode}`});
     return {
       display_name: "authorize"
     };

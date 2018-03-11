@@ -3,7 +3,7 @@ import BootstrapVue from 'bootstrap-vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Music from '@/components/Music'
-import Musicauthorization from '@/components/Musicauthorization'
+import Authorize from '@/components/authorize'
 
 
 Vue.use(Router);
@@ -23,9 +23,9 @@ export default new Router({
       component: Music
     },
     {
-      path: '/Musicauthorization',
-      name: 'Musicauthorization',
-      component: Musicauthorization
+      path: '/Authorize',
+      name: 'Authorize',
+      component: Authorize
     }
   ]
 })

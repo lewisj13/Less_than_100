@@ -4,21 +4,26 @@
     <!-- Navbar -->
         <div>
           <b-navbar  id="navbar" toggleable="md" type="dark">
-          <b-navbar-brand v-bind:to="{name: 'Home'}">Less Than 100</b-navbar-brand>
+          <b-navbar-brand id="nav-heading" v-bind:to="{name: 'Home'}">Less Than 100</b-navbar-brand>
 
-          <b-navbar-nav class="ml-auto">
+          <b-navbar-nav id="nav-links" class="ml-auto">
               <b-nav-item v-bind:to="{name: 'Home'}">Home</b-nav-item>
               <b-nav-item v-bind:to="{name: 'Music'}">Music</b-nav-item>
             </b-navbar-nav>
         </b-navbar>
       </div>
 
-    <h2 id="subtitle">MUSIC SECTION WITH SPOTIFY API</h2>
+
 
     <div id="login" v-show="mustLogin && !loggedIn" >
       <div v-show="!loggedIn">
-        <p>Login to Spotify to find music that has been played less than 100 times!</p>
-        <p><b-btn id='login-button' @click="login">Log In</b-btn></p>
+           <b-jumbotron id='login-jumbo'>
+             <h1 id='login-header'>Find Music to Dance</h1>
+                <p>Login to Spotify to find the music!</p>
+                <p><b-btn id='login-button' @click="login">Log In</b-btn></p>
+              <router-link :to="{name: 'Music'}">
+          </router-link>
+         </b-jumbotron>
       </div>
       <div id="user-profile-template"></div>
       <div id="user-profile"></div>
@@ -26,44 +31,37 @@
       <div id="oauth"></div>
     </div>
     <div id="loggedIn" v-show="loggedIn">
-      <h3>Welcome {{me && me.display_name}}</h3>
-      <p>Music for your Mood</p>
-      <p v-show="query && query.length > 0">This is a playlist based on <strong>{{query}}</strong></p>
-      <form v-on:submit.prevent="getPlaylist">
-        <p>I'm feeling like...<input type="text" v-model="query" placeholder="something">
-        <button>Go</button></p>
-      </form>
+      <b-jumbotron id="loggedIn-jumbo">
+      <h3 id='loggedIn-h3'>Welcome {{me && me.display_name}}!</h3>
+      <p>Search for music </p>
+      <p v-show="query && query.length > 0">This search is based on <strong>{{query}}</strong></p>
+      <b-form v-on:submit.prevent="getPlaylist">
+        <p>I want to hear...  <input type="text" v-model="query" placeholder="something">
+        <b-btn>Go</b-btn></p>
+      </b-form>
       <table class="music">
         <tr v-for="(result,index) in results" :key="index">
           <td>{{result.name}}</td><td><button id="music-fetch-button" @click="fetchMusic">Fetch</button></td>
         </tr>
       </table>
-
-
-      <!-- <ul class="music" v-if="results && results.length > 0">
-       <li v-for="(result,index) in results" :key="index">
-            <span class="music-name">{{result.name}}</span>
-            <input class="music-button" type="button" v-bind:value="result.name">
-       </li>
-      </ul> -->
+         </b-jumbotron>
     </div>
-    <div id='footer' class="footer">
-      <div class="container-fluid text-center text-md-left">
+
+  <div id='footer' class="footer">
+    <div class="container-fluid text-center text-md-left">
                 <div class="row">
+                  <div id="add">
+                      <h5 id="add-header" class="text-uppercase">Check out more at JNLewis Designs</h5>
+                      <p class ="text-center text-md-left">Please visit my portfolio at <a id="website-link" href="https://www.jnlewisdesigns.com">JnlewisDesigns</a> to learn more about my work.
+                       A small sample of my skills and abilities.</p>
 
-                    <div id="add" class="col-md-6">
-                        <h5 class="text-uppercase">For other projects check out JNLewis Designs.</h5>
-                        <p  class ="text-center text-md-left">Please visit my portfolio at <a href="https://jnlewisdesigns.com">JnlewisDesigns</a> to see more projects and learn more about my work.
-                         This is just a small sample of my skills and abilities. </p>
-                    </div>
-
-                    <div id='social' class="col-md-6">
-                        <h5 class="text-uppercase">Social</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="https://github.com/lewisj13/less_than_100">Github</a></li>
-                            <li><a href="https://www.linkedin.com/in/jamie-lewis-52a19b149/">Linkden</a></li>
-
-                        </ul>
+                       <div id='social'>
+                         <h5 class="text-uppercase">Social</h5>
+                           <ul  class="list-unstyled">
+                               <li><a id='social-link' href="https://github.com/lewisj13/less_than_100">Github</a></li>
+                               <li><a id='social-link' href="https://www.linkedin.com/in/jamie-lewis-52a19b149">Linkedin</a></li>
+                           </ul>
+                       </div>
                     </div>
                 </div>
             </div>
@@ -71,11 +69,12 @@
             <!--Copyright-->
             <div id='copyright' class="footer-copyright py-3 text-center">
                 <div class="container-fluid">
-                    © 2018 Copyright: <a href="https://jnlewisdesigns.com">JNLewis Designs</a>
+                    © 2018 Copyright: <a id='copyright-link' href="https//www.jnlewisdesigns.com">JNLewis Designs</a>
 
-                </div>
-            </div>
+              </div>
+          </div>
       </div>
+
 
   </div>
 </template>
@@ -118,6 +117,7 @@ export default {
         });
     }
   },
+
   methods: {
 
     getHashParams: function() {
@@ -199,7 +199,7 @@ export default {
           Authorization: "Bearer ".concat(this.access_token)
         }
       };
-      let URL = `https://api.spotify.com/v1/search?type=playlist&q=${
+      let URL = `https://api.spotify.com/v1/search?type=album:hipster&q=${
         this.query
       }`;
       let self = this;
@@ -228,27 +228,58 @@ export default {
   margin-top: 0px;
   margin-bottom: 40px;
 }
-
+#nav-heading {
+  font-weight: bold;
+  font-size: 40px;
+}
+#nav-links {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 30px;
+  padding-right: 50px;
+}
+#login {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-bottom: 50px;
+  background-color: white;
+  border: solid;
+}
 #login-button {
   background-color: #4ABDAC;
   border: none;
 }
+#loggedIn {
 
+}
 #footer {
   background-color: gray;
-
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 30px;
-  padding-rigth: 30px;
-  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0;
 }
 #add {
-   text-align: justify;
   padding-right: 20px;
-  padding-left: 20px;
-
+  padding-botto: 10px;
+  margin: auto;
+  text-align: center;
+  color: white;
 }
-
-
+#website-link {
+  color: #4ABDAC;
+}
+#social {
+  margin: auto;
+}
+#social-link {
+  color: #4ABDAC
+}
+#copyright {
+  color: white;
+  margin: auto;
+  font-style: italic;
+}
+#copyright-link {
+  color: #4ABDAC;
+}
 </style>
