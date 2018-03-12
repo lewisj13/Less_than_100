@@ -31,6 +31,11 @@
           So come explore and find something you didnt know existed in the mircocosm that is Spotify.</p>
         </b-jumbotron>
 
+        <div>
+     <b-img src="src/assets/About_photo.jpeg" fluid alt="Responsive image" />
+   </div>
+
+
 
 
       </div>

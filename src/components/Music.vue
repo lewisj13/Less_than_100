@@ -13,7 +13,9 @@
         </b-navbar>
       </div>
 
-
+<div>
+  <b-img src="src/assets/headphones.jpeg" fluid alt="Responsive image" />
+</div>
 
     <div id="login" v-show="mustLogin && !loggedIn" >
       <div v-show="!loggedIn">
