@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "Authorize",
+  name: "authorize",
   created: function() {
     console.log("Authorize created");
   },

@@ -23,9 +23,9 @@ export default new Router({
       component: Music
     },
     {
-      path: '/Authorize',
-      name: 'Authorize',
-      component: Authorize
+      path: '/authorize',
+      name: 'authorize',
+      component: authorize
     }
   ]
 })
