@@ -199,7 +199,7 @@ export default {
           Authorization: "Bearer ".concat(this.access_token)
         }
       };
-      let URL = `https://api.spotify.com/v1/search?type=album:hipster&q=${
+      let URL = `https://api.spotify.com/v1/search?type=playlist&q=${
         this.query
       }`;
       let self = this;
