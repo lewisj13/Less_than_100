@@ -42,14 +42,13 @@
             <div class="row">
               <div id="add">
                   <h5 id="add-header" class="text-uppercase">Check out more at JNLewis Designs</h5>
-                  <p class ="text-center text-md-left">Please visit my portfolio at <a id="website-link" href="https://www.jnlewisdesigns.com">JnlewisDesigns</a> to learn more about my work.
+                  <p class ="text-center text-md-left">Please visit my portfolio at <a id="website-link" href="http://jnlewisdesigns.com">JnlewisDesigns</a> to learn more about my work.
                    A small sample of my skills and abilities.</p>
 
                    <div id='social'>
                      <h5 class="text-uppercase">Social</h5>
                        <ul  class="list-unstyled">
                            <li><a id='social-link' href="https://github.com/lewisj13/less_than_100">Github</a></li>
-                           <li><a id='social-link' href="https://www.linkedin.com/in/jamie-lewis-52a19b149">Linkedin</a></li>
                        </ul>
                    </div>
                 </div>
@@ -59,7 +58,7 @@
         <!--Copyright-->
         <div id='copyright' class="footer-copyright py-3 text-center">
             <div class="container-fluid">
-                © 2018 Copyright: <a id='copyright-link' href="https//www.jnlewisdesigns.com">JNLewis Designs</a>
+                © 2018 Copyright: <a id='copyright-link' href="http://jnlewisdesigns.com">JNLewis Designs</a>
 
           </div>
       </div>

@@ -59,7 +59,6 @@
                          <h5 class="text-uppercase">Social</h5>
                            <ul  class="list-unstyled">
                                <li><a id='social-link' href="https://github.com/lewisj13/less_than_100">Github</a></li>
-                               <li><a id='social-link' href="https://www.linkedin.com/in/jamie-lewis-52a19b149">Linkedin</a></li>
                            </ul>
                        </div>
                     </div>
