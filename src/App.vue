@@ -15,7 +15,7 @@ export default {
 <style>
 template {
     background-color: #fc4a1a;
-    margin: 0;
+    margin: 100%;
     padding-top: 0;
 }
 #app {
@@ -25,11 +25,12 @@ template {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+
+  margin: auto;
 }
 body, html {
-  margin: 0;
-  padding: 0;
+  margin: auto;
+  padding: auto;
   background-color: #fc4a1a;
 }
 

@@ -14,7 +14,7 @@
       </div>
 
 <div>
-  <b-img src="src/assets/headphones.jpeg" fluid alt="Responsive image" />
+  <b-img src="docs/static/img/headphones.jpeg" fluid alt="Responsive image" />
 </div>
 
     <div id="login" v-show="mustLogin && !loggedIn" >
@@ -33,20 +33,18 @@
       <div id="oauth"></div>
     </div>
     <div id="loggedIn" v-show="loggedIn">
-      <b-jumbotron id="loggedIn-jumbo">
       <h3 id='loggedIn-h3'>Welcome {{me && me.display_name}}!</h3>
       <p>Search for music </p>
       <p v-show="query && query.length > 0">This search is based on <strong>{{query}}</strong></p>
-      <b-form v-on:submit.prevent="getPlaylist">
+      <form v-on:submit.prevent="getPlaylist">
         <p>I want to hear...  <input type="text" v-model="query" placeholder="something">
-        <b-btn>Go</b-btn></p>
-      </b-form>
-      <table class="music">
-        <tr v-for="(result,index) in results" :key="index">
-          <td>{{result.name}}</td><td><button id="music-fetch-button" @click="fetchMusic">Fetch</button></td>
+        <button>Go</button></p>
+      </form>
+      <table id='results' class="music">
+        <tr  v-for="(result,index) in results" :key="index">
+          <td>{{result.name}}</td>
         </tr>
       </table>
-         </b-jumbotron>
     </div>
 
   <div id='footer' class="footer">
@@ -200,7 +198,7 @@ export default {
           Authorization: "Bearer ".concat(this.access_token)
         }
       };
-      let URL = `https://api.spotify.com/v1/search?type=playlist&q=${
+      let URL = `https://api.spotify.com/v1/search?type=playlist&q=:hipster$${
         this.query
       }`;
       let self = this;
@@ -239,6 +237,13 @@ export default {
   font-size: 30px;
   padding-right: 50px;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
 #login {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -251,6 +256,16 @@ export default {
   border: none;
 }
 #loggedIn {
+
+}
+#results {
+  margin-top: 75px;
+  margin-left: 300px;
+  margin-bottom: 70px;
+  text-align: justify;
+  color: white;
+  font-style: italic;
+  font-weight: bold;
 
 }
 #footer {

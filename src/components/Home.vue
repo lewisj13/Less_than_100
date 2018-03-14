@@ -32,7 +32,7 @@
         </b-jumbotron>
 
         <div>
-     <b-img src="src/assets/About_photo.jpeg" fluid alt="Responsive image" />
+     <b-img src="docs/static/img/About_photo.jpeg" fluid alt="Responsive image" />
    </div>
 
 
@@ -81,6 +81,12 @@
 
 #home {
   background-color: #fc4a1a;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
 }
 #navbar {
   background-color: #4ABDAC;
