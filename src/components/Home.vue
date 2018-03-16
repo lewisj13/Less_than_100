@@ -15,7 +15,7 @@
 
 <!-- Main section -->
     <div>
-      <b-jumbotron id='main' header="Find Music to Dance" lead="Find music on Spotify that has been played 100 times or less." >
+      <b-jumbotron id='main' header="Find Your Inner Hipster" lead="Find music that is the least played on Spotify." >
 
         <router-link :to="{name: 'Music'}">
               <b-btn id='button2' >Find Music</b-btn>
@@ -26,18 +26,13 @@
 <div id="information" class="container">
   <div class="row">
     <b-jumbotron id='info'class="col-md-6" header="Why this App?"  >
-        <p> This app is a fun way to discover new music through Spotify. With the help of the Spotify web API and Vue.
-          This project has come to life. The main goal was to create a fun space to discover new music.
+        <p> This app is a fun way to discover new music through Spotify. With the help of the Spotify web API and Vue,
+          this project has come to life. The main goal was to create a fun space to discover new music from Spotify.
+          Discover new playlists that will bring out your inner hipster with a fun tag from the Spotify API.
           So come explore and find something you didnt know existed in the mircocosm that is Spotify.</p>
         </b-jumbotron>
 
-        <div>
-     <b-img src="docs/static/img/About_photo.jpeg" fluid alt="Responsive image" />
-   </div>
-
-
-
-
+     <img id="hipster" src="../assets/hipster.jpeg" fluid alt="Responsive image" />
       </div>
     </div>
 
@@ -99,24 +94,20 @@ a:hover {
   margin-top: 0;
   margin-bottom: 0;
 }
-
 #nav-heading {
   font-weight: bold;
   font-size: 40px;
 }
-
 #nav-links {
   font-weight: bold;
   font-style: italic;
   font-size: 30px;
   padding-right: 50px;
 }
-
 #button2 {
   background-color: #4ABDAC;
   border: none;
 }
-
 #main {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -124,25 +115,32 @@ a:hover {
   background-color: white;
   border: solid;
 }
-
 #information {
 margin-left: 30px;
 margin-right: 30px;
 margin-top: 30px;
 margin-bottom: 30px;
-padding- right: 30px;
+padding-right: 30px;
+padding-left: 40px;
 }
 #info {
   text-align: center;
 }
-#photo {
-  text-align: center;
+#hipster {
+  display: inline;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 70px;
+  width: 45%;
+  height: 45%;
 }
 #footer {
   background-color: gray;
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0;
+  border-top: solid;
 }
 #add {
   padding-right: 20px;

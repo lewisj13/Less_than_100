@@ -13,14 +13,14 @@
         </b-navbar>
       </div>
 
-<div>
-  <b-img src="docs/static/img/headphones.jpeg" fluid alt="Responsive image" />
+<div class="row">
+   <img id="heaphone" src="../assets/headphones.jpeg" fluid alt="Responsive image" />
 </div>
 
     <div id="login" v-show="mustLogin && !loggedIn" >
       <div v-show="!loggedIn">
            <b-jumbotron id='login-jumbo'>
-             <h1 id='login-header'>Find Music to Dance</h1>
+             <h1 id='login-header'>Find Your Inner Hipster</h1>
                 <p>Login to Spotify to find the music!</p>
                 <p><b-btn id='login-button' @click="login">Log In</b-btn></p>
               <router-link :to="{name: 'Music'}">
@@ -243,7 +243,14 @@ a {
 a:hover {
   text-decoration: none;
 }
-
+img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      padding-top: 40px;
+      padding-bottom: 40px;
+  }
 #login {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -256,7 +263,6 @@ a:hover {
   border: none;
 }
 #loggedIn {
-
 }
 #results {
   margin-top: 75px;
@@ -266,13 +272,13 @@ a:hover {
   color: white;
   font-style: italic;
   font-weight: bold;
-
 }
 #footer {
   background-color: gray;
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 20px;
   margin: 0;
+  border-top: solid;
 }
 #add {
   padding-right: 20px;
